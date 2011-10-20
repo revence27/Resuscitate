@@ -1,0 +1,28 @@
+Resuscitate
+========
+This is a program for restating programs if they exit with an error. It can be made to stop after a certain number of tries.
+
+The real purpose is to separate periodic process refresh issues from the business logic the same way that `cron` separates periodic process execution from business logic.
+
+It assumes that if a program exits with an error code, it needs to be restarted. It can work in sync with [a program that stops processes after a period of time](https://github.com/revence27/Lifespan), to enable a kind of time-based refresh of the program.
+
+Compiling
+---------
+Requires [GHC](http://haskell.org/ghc/) as it is written in Haskell.
+
+With that in place, run
+
+```bash
+make all
+```
+
+It should generate a binary, `resuscitate`, which, when invoked without arguments explains how to use it.
+
+Use
+---
+
+```bash
+resuscitate false
+```
+
+That command will run `false` and then keep restarting it. It will hang.
